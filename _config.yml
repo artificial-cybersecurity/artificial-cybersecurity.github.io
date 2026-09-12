@@ -6,8 +6,8 @@ tagline: Notes, research and tooling from the seam between AI and security.
 description: >-
   Writing about applied AI security, offensive and defensive tooling,
   and the engineering behind both.
-author: Steffen F. Birkeland
-email: steffenf.birkeland@gmail.com
+author: Artificial Cybersecurity
+# email: you@example.com
 
 # Full URL of the published site. baseurl stays empty for a *.github.io repo.
 url: "https://artificial-cybersecurity.github.io"
@@ -47,7 +47,7 @@ defaults:
       type: posts
     values:
       layout: post
-      author: Steffen F. Birkeland
+      author: Artificial Cybersecurity
       comments: false
   - scope:
       path: ""
