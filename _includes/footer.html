@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-copy">
+      &copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Words are mine; code is under the repo's licence.
+    </p>
+    <p class="footer-links">
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      {%- if site.github_username %}
+      <a href="https://github.com/{{ site.github_username }}" rel="me noopener">GitHub</a>
+      {%- endif %}
+      {%- if site.linkedin_username %}
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" rel="me noopener">LinkedIn</a>
+      {%- endif %}
+      {%- if site.mastodon_url %}
+      <a href="{{ site.mastodon_url }}" rel="me noopener">Mastodon</a>
+      {%- endif %}
+      {%- if site.x_username %}
+      <a href="https://x.com/{{ site.x_username }}" rel="me noopener">X</a>
+      {%- endif %}
+      {%- if site.email %}
+      <a href="mailto:{{ site.email }}">Email</a>
+      {%- endif %}
+    </p>
+  </div>
+</footer>

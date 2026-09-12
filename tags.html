@@ -1,0 +1,37 @@
+---
+layout: default
+title: Topics
+permalink: /tags/
+description: Posts grouped by topic.
+---
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">Topics</h1>
+    <p class="page-subtitle">Everything I have written, grouped by tag.</p>
+  </header>
+
+  {%- assign tags = site.tags | sort %}
+  {%- if tags.size > 0 %}
+  <p class="tag-row tag-cloud">
+    {%- for tag in tags %}
+    <a class="tag" href="#{{ tag[0] | slugify }}">{{ tag[0] }} <span class="tag-count">{{ tag[1].size }}</span></a>
+    {%- endfor %}
+  </p>
+
+  {%- for tag in tags %}
+  <section class="tag-group" id="{{ tag[0] | slugify }}">
+    <h2 class="tag-group-title">{{ tag[0] }}</h2>
+    <ul class="tag-post-list">
+      {%- for post in tag[1] %}
+      <li>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+  {%- else %}
+  <p class="empty">No tags yet. Add <code>tags: [ai, security]</code> to a post's front matter.</p>
+  {%- endif %}
+</div>

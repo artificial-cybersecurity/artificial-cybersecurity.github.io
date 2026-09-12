@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# Site settings — edit these, they show up all over the site.
+# ---------------------------------------------------------------------------
+title: Artificial Cybersecurity
+tagline: Notes, research and tooling from the seam between AI and security.
+description: >-
+  Writing about applied AI security, offensive and defensive tooling,
+  and the engineering behind both.
+author: Steffen F. Birkeland
+email: steffenf.birkeland@gmail.com
+
+# Full URL of the published site. baseurl stays empty for a *.github.io repo.
+url: "https://artificial-cybersecurity.github.io"
+baseurl: ""
+
+# Optional — delete any line you don't want in the footer.
+github_username: artificial-cybersecurity
+# linkedin_username:
+# mastodon_url:
+# x_username:
+
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:slug/
+timezone: Europe/Oslo
+excerpt_separator: "<!--more-->"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# Defaults so you never have to repeat yourself in front matter.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Steffen F. Birkeland
+      comments: false
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .github
+  - scripts

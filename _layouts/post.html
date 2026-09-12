@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<article class="wrap wrap-narrow post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-head">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d %B %Y" }}</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+      {%- if page.author %}
+      <span class="dot" aria-hidden="true">·</span>
+      <span itemprop="author">{{ page.author }}</span>
+      {%- endif %}
+    </div>
+
+    <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+
+    {%- if page.description %}
+    <p class="post-lede">{{ page.description }}</p>
+    {%- endif %}
+
+    {%- if page.tags and page.tags.size > 0 %}
+    <p class="tag-row">
+      {%- for tag in page.tags %}
+      <a class="tag" href="{{ '/tags/#' | append: tag | slugify | relative_url }}">{{ tag }}</a>
+      {%- endfor %}
+    </p>
+    {%- endif %}
+  </header>
+
+  <div class="prose" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-foot">
+    {%- assign prev = page.previous %}
+    {%- assign next = page.next %}
+    {%- if prev or next %}
+    <nav class="post-nav" aria-label="More posts">
+      {%- if prev %}
+      <a class="post-nav-link" href="{{ prev.url | relative_url }}">
+        <span class="post-nav-label">Previous</span>
+        <span class="post-nav-title">{{ prev.title | escape }}</span>
+      </a>
+      {%- endif %}
+      {%- if next %}
+      <a class="post-nav-link post-nav-next" href="{{ next.url | relative_url }}">
+        <span class="post-nav-label">Next</span>
+        <span class="post-nav-title">{{ next.title | escape }}</span>
+      </a>
+      {%- endif %}
+    </nav>
+    {%- endif %}
+
+    <p class="post-back"><a href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">&larr;</span> All writing</a></p>
+  </footer>
+</article>

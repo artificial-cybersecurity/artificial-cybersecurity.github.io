@@ -1,0 +1,33 @@
+---
+layout: default
+# No title here on purpose: the browser tab then reads
+# "Artificial Cybersecurity | <tagline>" instead of "Home | ...".
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">{{ site.title }}</p>
+    <h1 class="hero-title">{{ site.tagline }}</h1>
+    <p class="hero-body">{{ site.description }}</p>
+    <p class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Read the writing</a>
+      <a class="btn" href="{{ '/about/' | relative_url }}">About me</a>
+    </p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2 class="section-title">Latest</h2>
+    <a class="section-link" href="{{ '/blog/' | relative_url }}">All posts <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  {%- if site.posts.size > 0 %}
+  <div class="card-list">
+    {%- for post in site.posts limit: 5 %}
+      {% include post-card.html post=post %}
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="empty">No posts yet. Add a Markdown file to <code>_posts/</code> and it shows up here.</p>
+  {%- endif %}
+</section>
